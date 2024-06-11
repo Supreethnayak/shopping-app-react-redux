@@ -1,8 +1,9 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import AppLayout from "./layouts/AppLayout";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 // 1. create routes using createBrowserRouter
 // 2. send router variable to RouterProvider
@@ -18,7 +19,7 @@ const routes = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/Cart", // slug - can be anaything, anything can come up
+        path: "/Cart",
         element: <Cart />,
       },
     ],
@@ -28,7 +29,10 @@ const routes = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={routes} />
+      {/* inject store to app using Provider */}
+      <Provider store={store}>
+        <RouterProvider router={routes} />
+      </Provider>
     </>
   );
 }
