@@ -9,6 +9,8 @@ const cartSlice = createSlice({
   // does not change data outside of function
   reducers: {
     add(state, action) {
+      // direct mutate is possible inside createSlice
+      // no need of returning new state always  
       state.push(action.payload);
     },
     remove(state, action) {
@@ -18,7 +20,7 @@ const cartSlice = createSlice({
 });
 
 export const { add, remove } = cartSlice.actions;
-export default cartSlice;
+export default cartSlice.reducer;
 // export actions and reducer
 
 // 1. create slice

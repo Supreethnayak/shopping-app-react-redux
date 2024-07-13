@@ -36,6 +36,10 @@ img {
   transition: all 0.3s ease-in-out;
 }
 
+.selected {
+  background: #05e105;
+}
+
 .btn:hover {
   background: #75012e;
 }
